@@ -7,16 +7,21 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loading } from '../components/ui/Loading';
 import { setUser } from '../actions/auth';
+import { useState } from 'react';
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.auth);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     dispatch(setUser());
+    setTimeout(() => {
+      setLoading(true)
+    }, 1000);
   }, [])
 
-  if (!user) {
+  if (!loading) {
     return <Loading />
   }
 

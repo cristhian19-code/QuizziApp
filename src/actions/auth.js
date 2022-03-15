@@ -5,7 +5,6 @@ import { startPlayGame } from "./game";
 export const startLogin = (email, password) => {
   return async (dispatch) => {
     const user = await fetchSinToken("POST", { email, password }, "user");
-
     if (!user) return;
     localStorage.setItem("x-token", user.token);
 
@@ -17,8 +16,7 @@ export const startLogin = (email, password) => {
 export const setUser = () => {
   return async (dispatch) => {
     const user = await fetchConToken("POST", "user/renew");
-    console.log(user);
-    if (!user) return;
+    if (!user) return dispatch(login(null));
 
     localStorage.setItem("x-token", user.token);
     dispatch(login(user.data));
