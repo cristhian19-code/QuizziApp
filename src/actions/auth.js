@@ -17,6 +17,7 @@ export const startLogin = (email, password) => {
 export const setUser = () => {
   return async (dispatch) => {
     const user = await fetchConToken("POST", "user/renew");
+    console.log(user);
     if (!user) return;
 
     localStorage.setItem("x-token", user.token);

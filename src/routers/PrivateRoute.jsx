@@ -6,7 +6,7 @@ import { ResultScreen } from "../components/result/ResultScreen"
 
 export const PrivateRoute = () => {
   const { user } = useSelector(state => state.auth)
-  console.log(user);
+
   return (
     user ? (
       <Routes>
