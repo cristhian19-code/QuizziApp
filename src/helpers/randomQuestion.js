@@ -1,10 +1,4 @@
-import { questions } from "../database/data";
-
-export const randomQuestion = (questions) => {
-  return questions[Math.floor(Math.random() * questions.length)];
-};
-
-export const listQuestions = async() => {
+export const listQuestions = async (questions) => {
   let list = [];
   var i = 0;
 
@@ -16,9 +10,9 @@ export const listQuestions = async() => {
     }
   }
 
-  const listQuestions = await questions.filter((question) =>
-    list.includes(question.id)
+  const listQuestions = await questions.filter((question, index) =>
+    list.includes(index)
   );
-  
+
   return listQuestions;
 };

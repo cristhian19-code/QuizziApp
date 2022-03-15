@@ -1,12 +1,12 @@
+import { fetchConToken } from "../helpers/fetchApi";
 import { listQuestions } from "../helpers/randomQuestion";
 import { types } from "../types/types";
-import { startPlayGame } from "./game";
 
 export const startListQuestions = () => {
   return async (dispatch) => {
-    const questions = await listQuestions();
+    const resQuestions = await fetchConToken("GET", "question");
+    const questions = await listQuestions(resQuestions.questions);
     dispatch(listQuestionsGame(questions));
-    dispatch(startPlayGame());
   };
 };
 
@@ -18,8 +18,8 @@ const listQuestionsGame = (questions) => ({
 export const startAnswerUser = (answer) => ({
   type: types.setAnswerUser,
   payload: answer,
-})
+});
 
 export const startCleanQuestions = () => ({
   type: types.cleanQuestions,
-})
+});

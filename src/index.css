@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body,#root{
-  height: 100%;
+html, body, #root {
+  min-height: 100%;
   width: 100%;
 }
 
-*{
+* {
   font-family: 'Kanit', sans-serif;
 }

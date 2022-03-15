@@ -3,16 +3,19 @@ import { Circle, Square, Donut, Diamond } from "react-awesome-shapes";
 import { useDispatch } from "react-redux";
 import { startListQuestions } from "../../actions/questions";
 import { LetterAnimate } from "../ui/LetterAnimate";
+import { useNavigate } from 'react-router-dom';
 
-export const HomeScreem = () => {
+export const HomeScreen = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleChangePage = () => { 
-        dispatch(startListQuestions());
-    }    
-    
+    const handleChangePage = async () => {
+        await dispatch(startListQuestions());
+        navigate('/questions');
+    }
+
     return (
-        <div className="relative overflow-hidden min-h-full">
+        <div className="relative overflow-x-hidden h-screen">
             <motion.div
                 initial={{ y: 150 }}
                 animate={{ y: 200 }}
@@ -73,7 +76,7 @@ export const HomeScreem = () => {
                 zIndex={2}
             />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                <LetterAnimate/>
+                <LetterAnimate />
                 <motion.button
                     onClick={handleChangePage}
                     whileHover={{ scale: 1.2 }}

@@ -27,11 +27,6 @@ export const gameReducer = (state = initialState, action) => {
         ...state,
         changePage: false,
       };
-    case types.cleanUI:
-      return {
-        playGame: false,
-        changePage: false,
-      };
     default:
       return state;
   }

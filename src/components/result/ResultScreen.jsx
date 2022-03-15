@@ -11,13 +11,13 @@ import './index.css'
 import Confetti from "react-confetti";
 import { useDispatch } from "react-redux";
 import { startCleanQuestions } from "../../actions/questions";
-import { startCleanUI } from "../../actions/game";
+import { useNavigate } from "react-router-dom";
 
 export const ResultScreen = () => {
   const [result, setResult] = useState(null)
   const { questions } = useSelector(state => state.questions);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const { width, height } = useWindowSize()
 
   useEffect(async () => {
@@ -27,7 +27,7 @@ export const ResultScreen = () => {
   
   const handleExit = () => {
     dispatch(startCleanQuestions())
-    dispatch(startCleanUI())
+    navigate('/');
   }
 
   return (

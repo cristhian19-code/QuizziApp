@@ -12,8 +12,12 @@ export const questionsReducer = (state=initialState,action)=>{
             }
         case types.setAnswerUser:
             return {
-                questions: state.questions.map((question)=> question.id === action.payload.id ? {...question, userAnswer: action.payload.userAnswer} : question),
-            }
+              questions: state.questions.map((question) =>
+                question._id === action.payload._id
+                  ? { ...question, userAnswer: action.payload.userAnswer }
+                  : question
+              ),
+            };
         case types.cleanQuestions:
             return {
                 questions: [],

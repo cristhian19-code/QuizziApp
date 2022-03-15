@@ -13,9 +13,5 @@ export const startChangePage = () => ({
 })
 
 export const startStopChangePage = () => ({
-    type: types.stopChangePage
-})
-
-export const startCleanUI = () => ({
-    type: types.cleanUI
-})
+  type: types.stopChangePage,
+});

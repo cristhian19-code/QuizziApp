@@ -1,17 +1,19 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes } from "react-router-dom"
+import { HomeScreen } from "../components/home/HomeScreen"
 import { QuestionsScreen } from "../components/questions/QuestionsScreen"
 import { ResultScreen } from "../components/result/ResultScreen"
 
 export const PrivateRoute = () => {
-  const { playGame } = useSelector(state => state.game)
-
+  const { user } = useSelector(state => state.auth)
+  console.log(user);
   return (
-    playGame ? (
+    user ? (
       <Routes>
+        <Route index element={<HomeScreen />} />
         <Route path="questions" element={<QuestionsScreen/>} />
         <Route path="result" element={<ResultScreen/>} />
       </Routes>
-    ) : <Navigate to="/" />
+    ) : <Navigate to="/auth" />
   )
 }

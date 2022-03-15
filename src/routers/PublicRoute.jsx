@@ -2,10 +2,10 @@ import { useSelector } from "react-redux"
 import { Navigate } from "react-router-dom";
 
 export const PublicRoute = ({ children }) => {
-    const { playGame } = useSelector(state => state.game)
+    const { user } = useSelector(state => state.auth)
 
     return (
-        !playGame ? { ...children } : <Navigate to="/questions"/>
+        !user ? ({ ...children }) : <Navigate to="/" />
     )
 }
 

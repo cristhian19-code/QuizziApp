@@ -9,4 +9,8 @@ export const types = {
   changePage: "CHANGE_PAGE",
   stopChangePage: "STOP_CHANGE_PAGE",
   cleanUI: "CLEAN_UI",
+
+  startLogin: "START_LOGIN",
+  startRegister: "START_REGISTER",
+  startLogout: "START_LOGOUT",
 };

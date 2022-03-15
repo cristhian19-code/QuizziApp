@@ -18,15 +18,16 @@ export const QuestionsScreen = () => {
 
   //funcion para pasar a la siguiente pregunta
   const handleNextPage = () => {
-    const { id } = questions[nextPage];
+    const { _id } = questions[nextPage];
     dispatch(startChangePage(nextPage));
 
     if (questions.length - 1 === nextPage) {
       navigate('/result', { replace: true });
     }
-
-    dispatch(startAnswerUser({ id, userAnswer}));
+    // enviando la respuesta del usuario
+    dispatch(startAnswerUser({ _id, userAnswer }));
     
+    //esperando 1 segundo para cambiar de pagina y pregunta
     setTimeout(() => { 
       dispatch(startStopChangePage(nextPage));
     },200)
