@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { PublicRoute } from './PublicRoute'
 import { PrivateRoute } from './PrivateRoute';
 import { AuthScreen } from '../components/auth/AuthScreen';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loading } from '../components/ui/Loading';
 import { setUser } from '../actions/auth';
